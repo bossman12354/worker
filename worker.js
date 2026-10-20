@@ -1,0 +1,1 @@
+self.onmessage=async e=>{let{id,sid,b}=e.data;let r=await fetch('/level/7/mcp'+(sid?'?sessionId='+sid:''),{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json, text/event-stream'},body:JSON.stringify(b)});let t=await r.text();let ns=r.headers.get('mcp-session-id')||sid||'';self.postMessage({id,t,sid:ns});}
